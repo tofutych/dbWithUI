@@ -1,0 +1,9 @@
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\bin\Debug\dbWithUI.exe.config
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\bin\Debug\dbWithUI.exe
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\bin\Debug\dbWithUI.pdb
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.csprojAssemblyReference.cache
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.Form1.resources
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.Properties.Resources.resources
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.csproj.GenerateResource.cache
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.exe
+C:\Users\Tofut\source\repos\dbWithUI\dbWithUI\obj\Debug\dbWithUI.pdb
