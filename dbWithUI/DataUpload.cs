@@ -10,17 +10,13 @@ using System.Windows.Forms;
 
 namespace dbWithUI
 {
-    public partial class Form1 : Form
+    public partial class DataUpload : Form
     {
-        public Form1()
+        public DataUpload()
         {
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("ты сыч", "кто ты?", MessageBoxButtons.OK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
     }
 }
