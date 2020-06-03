@@ -95,45 +95,49 @@ namespace dbWithUI
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            //Data newForm = new Data();
-            //newForm.Show();
-            DatabaseManager _databaseManager = new DatabaseManager();
-            MySqlCommand _mySqlCommand = new MySqlCommand("INSERT INTO `customer` (`full_name`, `age`, `sex`, `experience`, `education`, `medical_card`, `car`)" +
-                " VALUES (@full_name,@age,@sex,@experience,@education,@medical_card,@car)", _databaseManager.GetConnection);
-
-            try
+            if (nameBox.Text == "Фамилия И. О." || ageBox.Text == "" || sexBox.Text == "муж/жен" || experienceBox.Text == "+/-" || educationBox.Text == "+/-" || medBox.Text == "+/-" || carBox.Text == "+/-")
             {
-                _mySqlCommand.Parameters.Add("@full_name", MySqlDbType.VarChar).Value = nameBox.Text;
-                _mySqlCommand.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
-                _mySqlCommand.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sexBox.Text;
-                _mySqlCommand.Parameters.Add("@experience", MySqlDbType.VarChar).Value = experienceBox.Text;
-                _mySqlCommand.Parameters.Add("@education", MySqlDbType.VarChar).Value = educationBox.Text;
-                _mySqlCommand.Parameters.Add("@medical_card", MySqlDbType.VarChar).Value = medBox.Text;
-                _mySqlCommand.Parameters.Add("@car", MySqlDbType.VarChar).Value = carBox.Text;
+                MessageBox.Show("Заполните все данные", "Что-то пошло не так!");
+            }
+            else
+            {
+                DatabaseManager _databaseManager = new DatabaseManager();
+                MySqlCommand _mySqlCommand = new MySqlCommand("INSERT INTO `customer` (`full_name`, `age`, `sex`, `experience`, `education`, `medical_card`, `car`)" +
+                    " VALUES (@full_name,@age,@sex,@experience,@education,@medical_card,@car)", _databaseManager.GetConnection);
 
-                _databaseManager.OpenConnection();
-
-                if (_mySqlCommand.ExecuteNonQuery() == 1)
+                try
                 {
-                    MessageBox.Show("Запись добавлена", "Успех!");
+                    _mySqlCommand.Parameters.Add("@full_name", MySqlDbType.VarChar).Value = nameBox.Text;
+                    _mySqlCommand.Parameters.Add("@age", MySqlDbType.VarChar).Value = ageBox.Text;
+                    _mySqlCommand.Parameters.Add("@sex", MySqlDbType.VarChar).Value = sexBox.Text;
+                    _mySqlCommand.Parameters.Add("@experience", MySqlDbType.VarChar).Value = experienceBox.Text;
+                    _mySqlCommand.Parameters.Add("@education", MySqlDbType.VarChar).Value = educationBox.Text;
+                    _mySqlCommand.Parameters.Add("@medical_card", MySqlDbType.VarChar).Value = medBox.Text;
+                    _mySqlCommand.Parameters.Add("@car", MySqlDbType.VarChar).Value = carBox.Text;
 
-                    Data form = new Data();
-                    this.Hide();
-                    form.Show();
+                    _databaseManager.OpenConnection();
+
+                    if (_mySqlCommand.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("Запись добавлена", "Успех!");
+
+                        Data form = new Data();
+                        this.Hide();
+                        form.Show();
+                    }
+                    else
+                        MessageBox.Show("Ошибка!", "Что-то пошло не так!");
                 }
-                else
-                    MessageBox.Show("Ошибка!", "Что-то пошло не так!");
-            }
-            catch
-            {
-                MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
+                catch
+                {
+                    MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
 
+                }
+                finally
+                {
+                    _databaseManager.CloseConnection();
+                }
             }
-            finally
-            {
-                _databaseManager.CloseConnection();
-            }
-
         }
 
 
