@@ -36,15 +36,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.sexBox = new System.Windows.Forms.TextBox();
-            this.expBox = new System.Windows.Forms.CheckBox();
-            this.eduBox = new System.Windows.Forms.CheckBox();
-            this.medBox = new System.Windows.Forms.CheckBox();
-            this.carBox = new System.Windows.Forms.CheckBox();
+            this.experienceBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.educationBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.medBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.carBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(12, 204);
+            this.addButton.Location = new System.Drawing.Point(12, 194);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(171, 23);
             this.addButton.TabIndex = 0;
@@ -54,9 +58,9 @@
             // 
             // viewButton
             // 
-            this.viewButton.Location = new System.Drawing.Point(12, 233);
+            this.viewButton.Location = new System.Drawing.Point(12, 223);
             this.viewButton.Name = "viewButton";
-            this.viewButton.Size = new System.Drawing.Size(171, 23);
+            this.viewButton.Size = new System.Drawing.Size(171, 30);
             this.viewButton.TabIndex = 1;
             this.viewButton.Text = "Взглянуть на всё";
             this.viewButton.UseVisualStyleBackColor = true;
@@ -67,6 +71,8 @@
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(171, 20);
             this.nameBox.TabIndex = 2;
+            this.nameBox.Enter += new System.EventHandler(this.nameBox_Enter);
+            this.nameBox.Leave += new System.EventHandler(this.nameBox_Leave);
             // 
             // ageBox
             // 
@@ -101,54 +107,84 @@
             this.sexBox.Name = "sexBox";
             this.sexBox.Size = new System.Drawing.Size(91, 20);
             this.sexBox.TabIndex = 7;
+            this.sexBox.Enter += new System.EventHandler(this.sexBox_Enter);
+            this.sexBox.Leave += new System.EventHandler(this.sexBox_Leave);
             // 
-            // expBox
+            // experienceBox
             // 
-            this.expBox.AutoSize = true;
-            this.expBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.expBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.expBox.Location = new System.Drawing.Point(12, 90);
-            this.expBox.Name = "expBox";
-            this.expBox.Size = new System.Drawing.Size(118, 21);
-            this.expBox.TabIndex = 8;
-            this.expBox.Text = "Опыт работы";
-            this.expBox.UseVisualStyleBackColor = true;
+            this.experienceBox.Location = new System.Drawing.Point(131, 90);
+            this.experienceBox.Name = "experienceBox";
+            this.experienceBox.Size = new System.Drawing.Size(52, 20);
+            this.experienceBox.TabIndex = 12;
+            this.experienceBox.Enter += new System.EventHandler(this.experienceBox_Enter);
+            this.experienceBox.Leave += new System.EventHandler(this.experienceBox_Leave);
             // 
-            // eduBox
+            // label3
             // 
-            this.eduBox.AutoSize = true;
-            this.eduBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.eduBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.eduBox.Location = new System.Drawing.Point(12, 116);
-            this.eduBox.Name = "eduBox";
-            this.eduBox.Size = new System.Drawing.Size(123, 21);
-            this.eduBox.TabIndex = 9;
-            this.eduBox.Text = "Образование";
-            this.eduBox.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(12, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Опыт работы";
+            // 
+            // educationBox
+            // 
+            this.educationBox.Location = new System.Drawing.Point(131, 116);
+            this.educationBox.Name = "educationBox";
+            this.educationBox.Size = new System.Drawing.Size(52, 20);
+            this.educationBox.TabIndex = 14;
+            this.educationBox.Enter += new System.EventHandler(this.educationBox_Enter);
+            this.educationBox.Leave += new System.EventHandler(this.educationBox_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(12, 116);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(110, 20);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Образование";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(12, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 20);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Мед. справка";
             // 
             // medBox
             // 
-            this.medBox.AutoSize = true;
-            this.medBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.medBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.medBox.Location = new System.Drawing.Point(12, 142);
+            this.medBox.Location = new System.Drawing.Point(131, 142);
             this.medBox.Name = "medBox";
-            this.medBox.Size = new System.Drawing.Size(120, 21);
-            this.medBox.TabIndex = 10;
-            this.medBox.Text = "Мед. справка";
-            this.medBox.UseVisualStyleBackColor = true;
+            this.medBox.Size = new System.Drawing.Size(52, 20);
+            this.medBox.TabIndex = 17;
+            this.medBox.Enter += new System.EventHandler(this.medBox_Enter);
+            this.medBox.Leave += new System.EventHandler(this.medBox_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(12, 168);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(104, 20);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Автомобиль";
             // 
             // carBox
             // 
-            this.carBox.AutoSize = true;
-            this.carBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.carBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.carBox.Location = new System.Drawing.Point(12, 168);
+            this.carBox.Location = new System.Drawing.Point(131, 168);
             this.carBox.Name = "carBox";
-            this.carBox.Size = new System.Drawing.Size(113, 21);
-            this.carBox.TabIndex = 11;
-            this.carBox.Text = "Автомобиль";
-            this.carBox.UseVisualStyleBackColor = true;
+            this.carBox.Size = new System.Drawing.Size(52, 20);
+            this.carBox.TabIndex = 19;
+            this.carBox.Enter += new System.EventHandler(this.carBox_Enter);
+            this.carBox.Leave += new System.EventHandler(this.carBox_Leave);
             // 
             // Form1
             // 
@@ -156,11 +192,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(195, 265);
+            this.ClientSize = new System.Drawing.Size(195, 258);
             this.Controls.Add(this.carBox);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.medBox);
-            this.Controls.Add(this.eduBox);
-            this.Controls.Add(this.expBox);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.educationBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.experienceBox);
             this.Controls.Add(this.sexBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -188,10 +228,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox sexBox;
-        private System.Windows.Forms.CheckBox expBox;
-        private System.Windows.Forms.CheckBox eduBox;
-        private System.Windows.Forms.CheckBox medBox;
-        private System.Windows.Forms.CheckBox carBox;
+        private System.Windows.Forms.TextBox experienceBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox educationBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox medBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox carBox;
     }
 }
 

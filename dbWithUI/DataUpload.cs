@@ -18,5 +18,10 @@ namespace dbWithUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
+
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

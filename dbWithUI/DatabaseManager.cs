@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace dbWithUI
 {
-    class DB
+    class DatabaseManager
     {
-        readonly MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=root;database=employment_agency");
+        MySqlConnection connection = new MySqlConnection("server=localhost;" +
+            "port=3306;" +
+            "username=root;" +
+            "password=root;" +
+            "database=employment_agency");
 
         public void OpenConnection()
         {
@@ -23,9 +27,6 @@ namespace dbWithUI
                 connection.Close();
         }
 
-        public MySqlConnection GetConnection()
-        {
-            return connection;
-        }
+        public MySqlConnection GetConnection { get { return connection; } }
     }
 }
