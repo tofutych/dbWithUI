@@ -120,10 +120,6 @@ namespace dbWithUI
                     if (_mySqlCommand.ExecuteNonQuery() == 1)
                     {
                         MessageBox.Show("Запись добавлена", "Успех!");
-
-                        Data form = new Data();
-                        this.Hide();
-                        form.Show();
                     }
                     else
                         MessageBox.Show("Ошибка!", "Что-то пошло не так!");
@@ -140,6 +136,11 @@ namespace dbWithUI
             }
         }
 
-
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            Data form = new Data();
+            this.Hide();
+            form.Show();
+        }
     }
 }

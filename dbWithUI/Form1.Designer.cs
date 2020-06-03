@@ -64,6 +64,7 @@
             this.viewButton.TabIndex = 1;
             this.viewButton.Text = "Взглянуть на всё";
             this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // nameBox
             // 
