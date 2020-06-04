@@ -150,8 +150,10 @@ namespace dbWithUI
                     RowOfData row = new RowOfData(_reader["id"], _reader["full_name"], _reader["age"], _reader["sex"], _reader["experience"], _reader["education"], _reader["medical_card"], _reader["car"]);
                     _data.Add(row);
                 }
+
                 for (int i = 0; i < _data.Count; i++)
                     AddDataGrid(_data[i]);
+
             }
             catch
             {
