@@ -176,7 +176,7 @@ namespace dbWithUI
             List<RowOfData> _data = new List<RowOfData>();
 
             DatabaseManager _manager = new DatabaseManager();
-            MySqlCommand _command = new MySqlCommand("SELECT * FROM 'customer'", _manager.GetConnection);
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM `customer`", _manager.GetConnection);
             MySqlDataReader _reader;
 
             //udalyaem tekushie stroki, chtob obnovit
