@@ -127,6 +127,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Data";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data";
             this.Shown += new System.EventHandler(this.Data_Shown);
             this.menuStrip1.ResumeLayout(false);
