@@ -309,5 +309,132 @@ namespace dbWithUI
                 }
             }
         }
+
+        private void изменитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Точно?", "Подтвердите", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (dataGrid.SelectedRows.Count == 0)
+                {
+                    if (Convert.ToString(this.dataGrid.Rows[0].Cells[1].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[2].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[3].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[4].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[5].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[6].Value) != "" &&
+                        Convert.ToString(this.dataGrid.Rows[0].Cells[7].Value) != "") 
+                    {
+                        string id = Convert.ToString(this.dataGrid.Rows[0].Cells[0].Value);
+                        string full_name = Convert.ToString(this.dataGrid.Rows[0].Cells[1].Value);
+                        string age = Convert.ToString(this.dataGrid.Rows[0].Cells[2].Value);
+                        string sex = Convert.ToString(this.dataGrid.Rows[0].Cells[3].Value);
+                        string experience = Convert.ToString(this.dataGrid.Rows[0].Cells[4].Value);
+                        string education = Convert.ToString(this.dataGrid.Rows[0].Cells[5].Value);
+                        string medical_card = Convert.ToString(this.dataGrid.Rows[0].Cells[6].Value);
+                        string car = Convert.ToString(this.dataGrid.Rows[0].Cells[7].Value);
+
+                        // otkroem bd
+                        DatabaseManager _manager = new DatabaseManager();
+                        string _commandString = "UPDATE `customer` SET `id` = '" + id + "', " +
+                            "`full_name` = '" + full_name + "', " +
+                            "`age` = '" + age + "', " +
+                            "`sex` = '" + sex + "', " +
+                            "`experience` = '" + experience + "', " +
+                            "`education` = '" + education + "', " +
+                            "`medical_card` = '" + medical_card + "', " +
+                            "`car` = '" + car + "' " +
+                            "WHERE `customer`.`id` = " + id;
+                        MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
+
+                        try
+                        {
+                            _manager.OpenConnection();
+                            _command.ExecuteNonQuery();
+                            MessageBox.Show("Данные изменены", "Успех!");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
+                        }
+                        finally
+                        {
+                            _manager.CloseConnection();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Не все поля заполнены", "Варнинг!");
+
+                }
+                else
+                {
+                    DatabaseManager _manager = new DatabaseManager();
+                    _manager.OpenConnection();
+                    bool changed = true;
+
+                    for (int i = 0; i < dataGrid.SelectedRows.Count; i++)
+                    {
+                        if (Convert.ToString(this.dataGrid.Rows[0].Cells[1].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[2].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[3].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[4].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[5].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[6].Value) != "" &&
+                       Convert.ToString(this.dataGrid.Rows[0].Cells[7].Value) != "")
+                        {
+                            string id = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[0].Value);
+                            string full_name = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[1].Value);
+                            string age = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[2].Value);
+                            string sex = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[3].Value);
+                            string experience = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[4].Value);
+                            string education = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[5].Value);
+                            string medical_card = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[6].Value);
+                            string car = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[7].Value);
+
+                            string _commandString = "UPDATE `customer` SET `id` = '" + id + "', " +
+                                "`full_name` = '" + full_name + "', " +
+                                "`age` = '" + age + "', " +
+                                "`sex` = '" + sex + "', " +
+                                "`experience` = '" + experience + "', " +
+                                "`education` = '" + education + "', " +
+                                "`medical_card` = '" + medical_card + "', " +
+                                "`car` = '" + car + "' " +
+                                "WHERE `customer`.`id` = " + id;
+                            MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
+
+                            try
+                            {
+                                if (_command.ExecuteNonQuery() != 1)
+                                    changed = false;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
+                            }
+                        }
+                        else
+                            MessageBox.Show("Не все поля заполнены", "Варнинг!");
+                    }
+
+                    if (changed)
+                        MessageBox.Show("Данные изменены!", "Успех!");
+                    else
+                        MessageBox.Show("Не все данные изменены!", "Варнинг!");
+
+                    _manager.CloseConnection();
+                }
+
+            }
+        }
+
+        private void выбранноеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Точно удалить эти данные?", "Подтвердите", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (dataGrid.SelectedRows.Count == 0)
+                {
+                    int index = Convert.ToInt32(numericChoose)
+                }
+            }
+        }
     }
 }

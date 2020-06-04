@@ -118,6 +118,7 @@
             this.изменитьToolStripMenuItem1.Name = "изменитьToolStripMenuItem1";
             this.изменитьToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
             this.изменитьToolStripMenuItem1.Text = "Изменить";
+            this.изменитьToolStripMenuItem1.Click += new System.EventHandler(this.изменитьToolStripMenuItem1_Click);
             // 
             // удалитьToolStripMenuItem
             // 
@@ -131,8 +132,9 @@
             // выбранноеToolStripMenuItem
             // 
             this.выбранноеToolStripMenuItem.Name = "выбранноеToolStripMenuItem";
-            this.выбранноеToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.выбранноеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выбранноеToolStripMenuItem.Text = "Выбранное";
+            this.выбранноеToolStripMenuItem.Click += new System.EventHandler(this.выбранноеToolStripMenuItem_Click);
             // 
             // всеToolStripMenuItem
             // 
