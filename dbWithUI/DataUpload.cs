@@ -132,5 +132,24 @@ namespace dbWithUI
             HeaderOfTheTable();
             dataGrid.Columns[0].ReadOnly = true;
         }
+
+        private void вНачальноеОкноToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            this.Hide();
+            form.Show();
+        }
+
+        private void вРежимПросмотраToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Data form = new Data();
+            this.Hide();
+            form.Show();
+        }
+
+        private void изПрограммыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

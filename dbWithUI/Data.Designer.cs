@@ -71,8 +71,8 @@
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.изменитьToolStripMenuItem.Text = "Режим изменения";
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.изменитьToolStripMenuItem.Text = "Режим редактирования";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem

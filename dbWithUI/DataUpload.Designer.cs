@@ -39,7 +39,10 @@
             this.выбранноеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.всеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перейтиКПросмотруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.вНачальноеОкноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вРежимПросмотраToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +69,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.действияToolStripMenuItem,
-            this.выходToolStripMenuItem});
+            this.выходToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -131,11 +134,36 @@
             this.перейтиКПросмотруToolStripMenuItem.Text = "Перейти к просмотру";
             this.перейтиКПросмотруToolStripMenuItem.Click += new System.EventHandler(this.перейтиКПросмотруToolStripMenuItem_Click);
             // 
-            // выходToolStripMenuItem
+            // выходToolStripMenuItem1
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.вНачальноеОкноToolStripMenuItem,
+            this.вРежимПросмотраToolStripMenuItem,
+            this.изПрограммыToolStripMenuItem});
+            this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
+            this.выходToolStripMenuItem1.Size = new System.Drawing.Size(54, 20);
+            this.выходToolStripMenuItem1.Text = "Выход";
+            // 
+            // вНачальноеОкноToolStripMenuItem
+            // 
+            this.вНачальноеОкноToolStripMenuItem.Name = "вНачальноеОкноToolStripMenuItem";
+            this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.вНачальноеОкноToolStripMenuItem.Text = "в начальное окно";
+            this.вНачальноеОкноToolStripMenuItem.Click += new System.EventHandler(this.вНачальноеОкноToolStripMenuItem_Click);
+            // 
+            // вРежимПросмотраToolStripMenuItem
+            // 
+            this.вРежимПросмотраToolStripMenuItem.Name = "вРежимПросмотраToolStripMenuItem";
+            this.вРежимПросмотраToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.вРежимПросмотраToolStripMenuItem.Text = "в режим просмотра";
+            this.вРежимПросмотраToolStripMenuItem.Click += new System.EventHandler(this.вРежимПросмотраToolStripMenuItem_Click);
+            // 
+            // изПрограммыToolStripMenuItem
+            // 
+            this.изПрограммыToolStripMenuItem.Name = "изПрограммыToolStripMenuItem";
+            this.изПрограммыToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.изПрограммыToolStripMenuItem.Text = "из программы";
+            this.изПрограммыToolStripMenuItem.Click += new System.EventHandler(this.изПрограммыToolStripMenuItem_Click);
             // 
             // DataUpload
             // 
@@ -165,11 +193,14 @@
         private System.Windows.Forms.ToolStripMenuItem действияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem обновитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выбранноеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem всеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перейтиКПросмотруToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem вНачальноеОкноToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вРежимПросмотраToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem изПрограммыToolStripMenuItem;
     }
 }
