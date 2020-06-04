@@ -187,9 +187,13 @@ namespace dbWithUI
                     _data.Add(row);
                 }
 
-                int i = Convert.ToInt32(numericChoose.Value);
+                int i = Convert.ToInt32(numericChoose.Value) - 1;
                 if (i >= 0 && i < _data.Count)
+                {
+                    dataGrid.ReadOnly = false;  // razreshaem redaktirovac!
                     AddDataGrid(_data[i]);
+                    dataGrid.Rows[i].Cells[0].ReadOnly = true;  // no id ne trogat suka
+                }
                 else
                     MessageBox.Show("Выбран неправильный элемент!", "Что-то пошло не так!");
             }
@@ -232,6 +236,11 @@ namespace dbWithUI
                         _reader["car"]);
                     _data.Add(row);
                 }
+
+                if (checkBox1.Checked)
+                    dataGrid.ReadOnly = false;
+                else
+                    dataGrid.ReadOnly = true;
 
                 //dobavim v tablicu epta
                 for (int i = 0; i < _data.Count; i++)
@@ -344,6 +353,7 @@ namespace dbWithUI
                             "`medical_card` = '" + medical_card + "', " +
                             "`car` = '" + car + "' " +
                             "WHERE `customer`.`id` = " + id;
+                        dataGrid.ReadOnly = true;
                         MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
 
                         try
@@ -373,13 +383,13 @@ namespace dbWithUI
 
                     for (int i = 0; i < dataGrid.SelectedRows.Count; i++)
                     {
-                        if (Convert.ToString(this.dataGrid.Rows[0].Cells[1].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[2].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[3].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[4].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[5].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[6].Value) != "" &&
-                       Convert.ToString(this.dataGrid.Rows[0].Cells[7].Value) != "")
+                        if (Convert.ToString(this.dataGrid.SelectedRows[i].Cells[1].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[2].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[3].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[4].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[5].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[6].Value) != "" &&
+                       Convert.ToString(this.dataGrid.SelectedRows[i].Cells[7].Value) != "")
                         {
                             string id = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[0].Value);
                             string full_name = Convert.ToString(this.dataGrid.SelectedRows[i].Cells[1].Value);

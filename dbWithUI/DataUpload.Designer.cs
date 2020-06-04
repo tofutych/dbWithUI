@@ -48,6 +48,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Choose = new System.Windows.Forms.Button();
             this.numericChoose = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -101,21 +102,21 @@
             // обновитьToolStripMenuItem
             // 
             this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
-            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.обновитьToolStripMenuItem.Text = "Загрузить данные из БД";
             this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.изменитьToolStripMenuItem.Text = "Выгрузить";
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.изменитьToolStripMenuItem.Text = "Выгрузить новые строки";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem1
             // 
             this.изменитьToolStripMenuItem1.Name = "изменитьToolStripMenuItem1";
-            this.изменитьToolStripMenuItem1.Size = new System.Drawing.Size(194, 22);
+            this.изменитьToolStripMenuItem1.Size = new System.Drawing.Size(210, 22);
             this.изменитьToolStripMenuItem1.Text = "Изменить";
             this.изменитьToolStripMenuItem1.Click += new System.EventHandler(this.изменитьToolStripMenuItem1_Click);
             // 
@@ -125,27 +126,27 @@
             this.выбранноеToolStripMenuItem,
             this.всеToolStripMenuItem});
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             // 
             // выбранноеToolStripMenuItem
             // 
             this.выбранноеToolStripMenuItem.Name = "выбранноеToolStripMenuItem";
-            this.выбранноеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выбранноеToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.выбранноеToolStripMenuItem.Text = "Выбранное";
             this.выбранноеToolStripMenuItem.Click += new System.EventHandler(this.выбранноеToolStripMenuItem_Click);
             // 
             // всеToolStripMenuItem
             // 
             this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
-            this.всеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.всеToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.всеToolStripMenuItem.Text = "Все";
             this.всеToolStripMenuItem.Click += new System.EventHandler(this.всеToolStripMenuItem_Click);
             // 
             // перейтиКПросмотруToolStripMenuItem
             // 
             this.перейтиКПросмотруToolStripMenuItem.Name = "перейтиКПросмотруToolStripMenuItem";
-            this.перейтиКПросмотруToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.перейтиКПросмотруToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.перейтиКПросмотруToolStripMenuItem.Text = "Перейти к просмотру";
             this.перейтиКПросмотруToolStripMenuItem.Click += new System.EventHandler(this.перейтиКПросмотруToolStripMenuItem_Click);
             // 
@@ -161,14 +162,14 @@
             // вНачальноеОкноToolStripMenuItem
             // 
             this.вНачальноеОкноToolStripMenuItem.Name = "вНачальноеОкноToolStripMenuItem";
-            this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.вНачальноеОкноToolStripMenuItem.Text = "в начальное окно";
             this.вНачальноеОкноToolStripMenuItem.Click += new System.EventHandler(this.вНачальноеОкноToolStripMenuItem_Click);
             // 
             // изПрограммыToolStripMenuItem
             // 
             this.изПрограммыToolStripMenuItem.Name = "изПрограммыToolStripMenuItem";
-            this.изПрограммыToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.изПрограммыToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изПрограммыToolStripMenuItem.Text = "из программы";
             this.изПрограммыToolStripMenuItem.Click += new System.EventHandler(this.изПрограммыToolStripMenuItem_Click);
             // 
@@ -243,12 +244,23 @@
             0,
             0});
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(230, 3);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(194, 17);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Множественное редактирование";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // DataUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGrid);
@@ -292,5 +304,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Choose;
         private System.Windows.Forms.NumericUpDown numericChoose;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
