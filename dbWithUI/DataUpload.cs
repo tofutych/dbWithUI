@@ -135,7 +135,7 @@ namespace dbWithUI
         private void DataUpload_Shown(object sender, EventArgs e)
         {
             HeaderOfTheTable();
-            dataGrid.Colums[0].ReadOnly = true;
+            dataGrid.Columns[0].ReadOnly = true;
         }
     }
 }
