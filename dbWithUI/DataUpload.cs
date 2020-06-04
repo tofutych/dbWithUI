@@ -152,5 +152,162 @@ namespace dbWithUI
             Application.Exit();
         }
 
+        private void Create_Click(object sender, EventArgs e)
+        {
+            //udalim che vidim
+            dataGrid.DataSource = null;
+            dataGrid.Rows.Clear();
+
+            dataGrid.RowCount = Convert.ToInt32(numericCreate.Value);
+            dataGrid.ReadOnly = false;
+
+            for (int i = 0; i < dataGrid.Rows.Count; i++)
+                dataGrid.Rows[i].Cells[0].ReadOnly = true;  // id ne menyat suka
+        }
+
+        private void Choose_Click(object sender, EventArgs e)
+        {
+            dataGrid.DataSource = null;
+            dataGrid.Rows.Clear();
+
+            _data.Clear();
+
+            DatabaseManager _manager = new DatabaseManager();
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM `customer`", _manager.GetConnection);
+            MySqlDataReader _reader;
+
+            try
+            {
+                _manager.OpenConnection();
+                _reader = _command.ExecuteReader();
+
+                while (_reader.Read())
+                {
+                    RowOfData row = new RowOfData(_reader["id"], _reader["full_name"], _reader["age"], _reader["sex"], _reader["experience"], _reader["education"], _reader["medical_card"], _reader["car"]);
+                    _data.Add(row);
+                }
+
+                int i = Convert.ToInt32(numericChoose.Value);
+                if (i >= 0 && i < _data.Count)
+                    AddDataGrid(_data[i]);
+                else
+                    MessageBox.Show("Выбран неправильный элемент!", "Что-то пошло не так!");
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка при работе с БД!", "Варнинг");
+            }
+            finally
+            {
+                _manager.CloseConnection();
+            }
+        }
+
+        private void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _data.Clear();
+
+            DatabaseManager _manager = new DatabaseManager();
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM `customer`", _manager.GetConnection);
+            MySqlDataReader _reader;
+
+            dataGrid.DataSource = null;
+            dataGrid.Rows.Clear();
+
+            try
+            {
+                _manager.OpenConnection();
+                _reader = _command.ExecuteReader();
+
+                while (_reader.Read())
+                {
+                    RowOfData row = new RowOfData(
+                        _reader["id"],
+                        _reader["full_name"],
+                        _reader["age"],
+                        _reader["sex"],
+                        _reader["experience"],
+                        _reader["education"],
+                        _reader["medical_card"],
+                        _reader["car"]);
+                    _data.Add(row);
+                }
+
+                //dobavim v tablicu epta
+                for (int i = 0; i < _data.Count; i++)
+                {
+                    AddDataGrid(_data[i]);
+                    dataGrid.Rows[i].Cells[0].ReadOnly = true;  // id ne trogat suka
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Произошла ошибка при работе с БД!", "Варнинг");
+            }
+            finally
+            {
+                _manager.CloseConnection();
+            }
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Отправить изменения в базу данных?", "Подтвердите!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DatabaseManager _manager = new DatabaseManager();
+
+                try
+                {
+                    bool add = true;
+
+                    _manager.OpenConnection();
+
+                    // letim po strokam
+                    for (int i = 0; i < dataGrid.Rows.Count; i++)
+                    {
+                        if (Convert.ToString(this.dataGrid.Rows[i].Cells[1].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[2].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[3].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[4].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[5].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[6].Value) != "" &&
+                            Convert.ToString(this.dataGrid.Rows[i].Cells[7].Value) != "")
+                        {
+                            string _commandString = "INSERT INTO `customer` (`full_name`, `age`, `sex`, `experience`, `education`, `medical_card`, `car`) " +
+                                "VALUES (@full_name,@age,@sex,@experience,@education,@medical_card,@car)";
+                            MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
+
+                            // zaglushki zamenin ept
+                            _command.Parameters.Add("@full_name", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[1].Value;
+                            _command.Parameters.Add("@age", MySqlDbType.VarChar).Value = Convert.ToString(this.dataGrid.Rows[i].Cells[2].Value);
+                            _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[3].Value;
+                            _command.Parameters.Add("@experience", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[4].Value;
+                            _command.Parameters.Add("@education", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[5].Value;
+                            _command.Parameters.Add("@medical_card", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[6].Value;
+                            _command.Parameters.Add("@car", MySqlDbType.VarChar).Value = this.dataGrid.Rows[i].Cells[7].Value;
+
+                            if (_command.ExecuteNonQuery() != 1)  // esli hot 1 ne dobavilsya, to skahzhem
+                                add = false;
+                        }
+                        else
+                            MessageBox.Show("Не все поля заполнены", "Варнинг!");
+                    }
+
+                    if (add)
+                        MessageBox.Show("Данные добавлены", "Успех!");
+                    else
+                        MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
+
+                }
+                catch
+                {
+                    MessageBox.Show("Ошибка при работе с БД", "Что-то пошло не так!");
+                }
+                finally
+                {
+                    _manager.CloseConnection();
+                }
+            }
+        }
     }
 }

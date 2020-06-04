@@ -44,8 +44,8 @@
             this.вРежимПросмотраToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericCreate = new System.Windows.Forms.NumericUpDown();
             this.Create = new System.Windows.Forms.Button();
+            this.numericCreate = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Choose = new System.Windows.Forms.Button();
             this.numericChoose = new System.Windows.Forms.NumericUpDown();
@@ -103,13 +103,15 @@
             // 
             this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
             this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
-            this.обновитьToolStripMenuItem.Text = "Загрузить";
+            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.изменитьToolStripMenuItem.Text = "Выгрузить";
+            this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem1
             // 
@@ -187,6 +189,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Сколько данных добавить";
             // 
+            // Create
+            // 
+            this.Create.Location = new System.Drawing.Point(101, 19);
+            this.Create.Name = "Create";
+            this.Create.Size = new System.Drawing.Size(69, 20);
+            this.Create.TabIndex = 1;
+            this.Create.Text = "Создать";
+            this.Create.UseVisualStyleBackColor = true;
+            this.Create.Click += new System.EventHandler(this.Create_Click);
+            // 
             // numericCreate
             // 
             this.numericCreate.Location = new System.Drawing.Point(6, 19);
@@ -203,15 +215,6 @@
             0,
             0,
             0});
-            // 
-            // Create
-            // 
-            this.Create.Location = new System.Drawing.Point(101, 19);
-            this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(69, 20);
-            this.Create.TabIndex = 1;
-            this.Create.Text = "Создать";
-            this.Create.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -230,8 +233,9 @@
             this.Choose.Name = "Choose";
             this.Choose.Size = new System.Drawing.Size(69, 20);
             this.Choose.TabIndex = 1;
-            this.Choose.Text = "Создать";
+            this.Choose.Text = "Выбрать";
             this.Choose.UseVisualStyleBackColor = true;
+            this.Choose.Click += new System.EventHandler(this.Choose_Click);
             // 
             // numericChoose
             // 
