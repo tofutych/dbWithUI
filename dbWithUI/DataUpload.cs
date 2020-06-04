@@ -432,7 +432,89 @@ namespace dbWithUI
             {
                 if (dataGrid.SelectedRows.Count == 0)
                 {
-                    int index = Convert.ToInt32(numericChoose)
+                    int index = Convert.ToInt32(numericChoose);
+
+                    if (index > 0 && index <= _data.Count)
+                    {
+                        DatabaseManager _manager = new DatabaseManager();
+                        string id = Convert.ToString(this.dataGrid.Rows[0].Cells[0].Value);
+                        string _commandString = "DELETE FROM `customer` WHERE `customer`.`id` = " + id;
+                        MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
+
+                        try
+                        {
+                            _manager.OpenConnection();
+                            _command.ExecuteNonQuery();
+                            MessageBox.Show("Удалено", "Успех!");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Произошла ошибка при работе с БД!", "Варнинг");
+                        }
+                        finally
+                        {
+                            _manager.CloseConnection();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Введен неверный элемент!", "Ошиб очка");
+                }
+                else
+                {
+                    DatabaseManager _manager = new DatabaseManager();
+                    _manager.OpenConnection();
+                    bool delete = true;
+
+                    foreach (DataGridViewRow row in dataGrid.SelectedRows)
+                    {
+                        string id = Convert.ToString(row.Cells[0].Value);
+                        string _commandString = "DELETE FROM `customer` WHERE `customer`.`id` = " + id;
+                        MySqlCommand _command = new MySqlCommand(_commandString, _manager.GetConnection);
+
+                        try
+                        {
+                            dataGrid.Rows.Remove(row);
+                            if (_command.ExecuteNonQuery() != 1)
+                                delete = false;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Произошла ошибка при работе с БД!", "Варнинг");
+                        }
+
+                    }
+
+                    if (delete)
+                        MessageBox.Show("Удалено", "Успех!");
+                    else
+                        MessageBox.Show("Не все пошло по маслу!", "Соболезную...F");
+
+                    _manager.CloseConnection();
+                }
+            }
+        }
+
+        private void всеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Точно удалить все данные?", "Подтвердите!", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                DatabaseManager _manager = new DatabaseManager();
+                MySqlCommand _command = new MySqlCommand("TRUNCATE TABLE `customer`", _manager.GetConnection);
+
+                try
+                {
+                    _manager.OpenConnection();
+
+                    _command.ExecuteNonQuery();
+                    MessageBox.Show("Данные удалены", "Успех!");
+                }
+                catch
+                {
+                    MessageBox.Show("Произошла ошибка при работе с БД!", "Варнинг");
+                }
+                finally
+                {
+                    _manager.CloseConnection();
                 }
             }
         }

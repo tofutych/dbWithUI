@@ -41,7 +41,6 @@
             this.перейтиКПросмотруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.вНачальноеОкноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вРежимПросмотраToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Create = new System.Windows.Forms.Button();
@@ -139,8 +138,9 @@
             // всеToolStripMenuItem
             // 
             this.всеToolStripMenuItem.Name = "всеToolStripMenuItem";
-            this.всеToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.всеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.всеToolStripMenuItem.Text = "Все";
+            this.всеToolStripMenuItem.Click += new System.EventHandler(this.всеToolStripMenuItem_Click);
             // 
             // перейтиКПросмотруToolStripMenuItem
             // 
@@ -153,7 +153,6 @@
             // 
             this.выходToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вНачальноеОкноToolStripMenuItem,
-            this.вРежимПросмотраToolStripMenuItem,
             this.изПрограммыToolStripMenuItem});
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
             this.выходToolStripMenuItem1.Size = new System.Drawing.Size(54, 20);
@@ -165,13 +164,6 @@
             this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.вНачальноеОкноToolStripMenuItem.Text = "в начальное окно";
             this.вНачальноеОкноToolStripMenuItem.Click += new System.EventHandler(this.вНачальноеОкноToolStripMenuItem_Click);
-            // 
-            // вРежимПросмотраToolStripMenuItem
-            // 
-            this.вРежимПросмотраToolStripMenuItem.Name = "вРежимПросмотраToolStripMenuItem";
-            this.вРежимПросмотраToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.вРежимПросмотраToolStripMenuItem.Text = "в режим просмотра";
-            this.вРежимПросмотраToolStripMenuItem.Click += new System.EventHandler(this.вРежимПросмотраToolStripMenuItem_Click);
             // 
             // изПрограммыToolStripMenuItem
             // 
@@ -242,11 +234,6 @@
             // numericChoose
             // 
             this.numericChoose.Location = new System.Drawing.Point(6, 19);
-            this.numericChoose.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.numericChoose.Name = "numericChoose";
             this.numericChoose.Size = new System.Drawing.Size(89, 20);
             this.numericChoose.TabIndex = 0;
@@ -298,7 +285,6 @@
         private System.Windows.Forms.ToolStripMenuItem перейтиКПросмотруToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem вНачальноеОкноToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вРежимПросмотраToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изПрограммыToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Create;
