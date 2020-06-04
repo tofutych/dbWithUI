@@ -65,14 +65,14 @@
             // 
             this.обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
             this.обновитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.обновитьToolStripMenuItem.Text = "Обновить";
+            this.обновитьToolStripMenuItem.Text = "Обновить данные";
             this.обновитьToolStripMenuItem.Click += new System.EventHandler(this.обновитьToolStripMenuItem_Click);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.изменитьToolStripMenuItem.Text = "Изменить";
+            this.изменитьToolStripMenuItem.Text = "Режим изменения";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
@@ -87,14 +87,14 @@
             // вНачальноеОкноToolStripMenuItem
             // 
             this.вНачальноеОкноToolStripMenuItem.Name = "вНачальноеОкноToolStripMenuItem";
-            this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.вНачальноеОкноToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.вНачальноеОкноToolStripMenuItem.Text = "в начальное окно";
             this.вНачальноеОкноToolStripMenuItem.Click += new System.EventHandler(this.вНачальноеОкноToolStripMenuItem_Click);
             // 
             // изПрограммыToolStripMenuItem
             // 
             this.изПрограммыToolStripMenuItem.Name = "изПрограммыToolStripMenuItem";
-            this.изПрограммыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изПрограммыToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изПрограммыToolStripMenuItem.Text = "из программы";
             this.изПрограммыToolStripMenuItem.Click += new System.EventHandler(this.изПрограммыToolStripMenuItem_Click);
             // 

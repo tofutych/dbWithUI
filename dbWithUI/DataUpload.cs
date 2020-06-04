@@ -21,11 +21,6 @@ namespace dbWithUI
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void перейтиКПросмотруToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Data form = new Data();
