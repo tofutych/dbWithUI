@@ -43,8 +43,18 @@
             this.вНачальноеОкноToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вРежимПросмотраToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изПрограммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericCreate = new System.Windows.Forms.NumericUpDown();
+            this.Create = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Choose = new System.Windows.Forms.Button();
+            this.numericChoose = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericCreate)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericChoose)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGrid
@@ -61,12 +71,13 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(435, 31);
+            this.label1.Size = new System.Drawing.Size(313, 31);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Данные (режим редактирования)";
+            this.label1.Text = "Режим редактирования";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.действияToolStripMenuItem,
             this.выходToolStripMenuItem1});
@@ -142,7 +153,7 @@
             this.изПрограммыToolStripMenuItem});
             this.выходToolStripMenuItem1.Name = "выходToolStripMenuItem1";
             this.выходToolStripMenuItem1.Size = new System.Drawing.Size(54, 20);
-            this.выходToolStripMenuItem1.Text = "Выход";
+            this.выходToolStripMenuItem1.Text = "Выйти";
             // 
             // вНачальноеОкноToolStripMenuItem
             // 
@@ -165,11 +176,89 @@
             this.изПрограммыToolStripMenuItem.Text = "из программы";
             this.изПрограммыToolStripMenuItem.Click += new System.EventHandler(this.изПрограммыToolStripMenuItem_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Create);
+            this.groupBox1.Controls.Add(this.numericCreate);
+            this.groupBox1.Location = new System.Drawing.Point(430, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(176, 52);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Сколько данных добавить";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // numericCreate
+            // 
+            this.numericCreate.Location = new System.Drawing.Point(6, 19);
+            this.numericCreate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericCreate.Name = "numericCreate";
+            this.numericCreate.Size = new System.Drawing.Size(89, 20);
+            this.numericCreate.TabIndex = 0;
+            this.numericCreate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // Create
+            // 
+            this.Create.Location = new System.Drawing.Point(101, 19);
+            this.Create.Name = "Create";
+            this.Create.Size = new System.Drawing.Size(69, 20);
+            this.Create.TabIndex = 1;
+            this.Create.Text = "Создать";
+            this.Create.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.Choose);
+            this.groupBox2.Controls.Add(this.numericChoose);
+            this.groupBox2.Location = new System.Drawing.Point(612, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(176, 52);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Какую запись изменить";
+            // 
+            // Choose
+            // 
+            this.Choose.Location = new System.Drawing.Point(101, 19);
+            this.Choose.Name = "Choose";
+            this.Choose.Size = new System.Drawing.Size(69, 20);
+            this.Choose.TabIndex = 1;
+            this.Choose.Text = "Создать";
+            this.Choose.UseVisualStyleBackColor = true;
+            // 
+            // numericChoose
+            // 
+            this.numericChoose.Location = new System.Drawing.Point(6, 19);
+            this.numericChoose.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericChoose.Name = "numericChoose";
+            this.numericChoose.Size = new System.Drawing.Size(89, 20);
+            this.numericChoose.TabIndex = 0;
+            this.numericChoose.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // DataUpload
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -180,6 +269,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericCreate)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericChoose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +295,11 @@
         private System.Windows.Forms.ToolStripMenuItem вНачальноеОкноToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вРежимПросмотраToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изПрограммыToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.NumericUpDown numericCreate;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button Choose;
+        private System.Windows.Forms.NumericUpDown numericChoose;
     }
 }

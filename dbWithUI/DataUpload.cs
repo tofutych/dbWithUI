@@ -151,5 +151,10 @@ namespace dbWithUI
         {
             Application.Exit();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
