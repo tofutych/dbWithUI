@@ -235,6 +235,11 @@
             // numericChoose
             // 
             this.numericChoose.Location = new System.Drawing.Point(6, 19);
+            this.numericChoose.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericChoose.Name = "numericChoose";
             this.numericChoose.Size = new System.Drawing.Size(89, 20);
             this.numericChoose.TabIndex = 0;

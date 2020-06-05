@@ -183,7 +183,7 @@ namespace dbWithUI
 
                 while (_reader.Read())
                 {
-                    RowOfData row = new RowOfData(_reader["id"], _reader["full_name"], _reader["age"], _reader["sex"], _reader["experience"], _reader["education"], _reader["medical_card"], _reader["car"]);
+                        RowOfData row = new RowOfData(_reader["id"], _reader["full_name"], _reader["age"], _reader["sex"], _reader["experience"], _reader["education"], _reader["medical_card"], _reader["car"]);
                     _data.Add(row);
                 }
 
@@ -192,7 +192,7 @@ namespace dbWithUI
                 {
                     dataGrid.ReadOnly = false;  // razreshaem redaktirovac!
                     AddDataGrid(_data[i]);
-                    dataGrid.Rows[i].Cells[0].ReadOnly = true;  // no id ne trogat suka
+                    dataGrid.Columns[0].ReadOnly = true;
                 }
                 else
                     MessageBox.Show("Выбран неправильный элемент!", "Что-то пошло не так!");
